@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateBookedhallsTable extends Migration
 {
@@ -22,8 +23,9 @@ class CreateBookedhallsTable extends Migration
             $table->integer('Capacity');
             $table->string('ClassID');
             $table->string('Access');
+            $table->datetime('Duration');
             $table->string('Note')->nullable();
-            $table->softDeletes();
+            $table->SoftDeletes();
             $table->unique(['Day','PeriodID','ClassID'],'UniqueFree');
             $table->timestamps();
         });

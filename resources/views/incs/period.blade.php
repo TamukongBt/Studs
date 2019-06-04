@@ -1,6 +1,7 @@
 
 @php
     function PeriodS($PeriodID){
+
                                       switch ($PeriodID) {
                                       case '1':
                                      echo  '7:00 am';
@@ -38,6 +39,7 @@
                                           default:
                                           echo 'No entry';
                                   }
+                                  return 0;
                                 } @endphp
 @php
     function PeriodE($PeriodID) {
@@ -78,6 +80,8 @@
                                 default:
                                 echo 'No entry';
                              }
+                             return 0;
     }
+    
 @endphp
     

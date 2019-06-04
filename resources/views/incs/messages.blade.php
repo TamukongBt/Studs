@@ -2,9 +2,13 @@
 <div class="alert alert-danger">
   <strong>Whoops! </strong> there where some problems with your input.<br>
   <ul>
-    @foreach ($errors as $error)
-      <li>{{$error}}</li>
-    @endforeach
+    <?php
+       if (count($errors)>0) {
+         echo '<li>'.$errors.'<li>';
+       } 
+       else if (count($errors)>1){ foreach ($errors as $error) {
+        echo '<li>'.$error.'<li>';
+       } }?>
   </ul>
 </div>
 @endif

@@ -58,6 +58,8 @@ Route::resource('course', 'CourseController');
 Route::post('course/create','CourseController@store');
 Route::get('course/{CourseCode}','CourseController@show');
 
+Route::post('/book','BookedhallController@store');
+
 
 Auth::routes();
 
