@@ -48,6 +48,7 @@ class BookedhallController extends Controller
         $book->Capacity = $request->Capacity;
         $book->ClassID = $request->ClassID;
         $book->Access = $request->Access;
+        return $request->PeriodID;
         $EndTime=null;
         switch ($request->PeriodID) {
             case '1':
@@ -86,8 +87,8 @@ class BookedhallController extends Controller
                 default:
                 $EndTime= 'No entry';
             }
-            return $request;
-        $book->Duration = Carbon::parse($request->EndTime)->format('Y-m-d H:i:s');
+            return $EndTime;
+        $book->Duration = Carbon::parse($EndTime)->format('Y-m-d H:i:s');
         return $book->Duration;
         $book->Note = $request->Note;
         $book->save();

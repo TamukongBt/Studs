@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Bookedhall;
+use Carbon\Carbon;
 
 class Delete extends Command
 {
@@ -38,8 +39,8 @@ class Delete extends Command
      */
     public function handle()
     {
-        Bookedhall::where('datetime', '<', Carbon::now())->each(function ($item) {
-            $item->delete();
+        Bookedhall::where('Duration', '<', Carbon::now())->each(function ($bookedhall) {
+            $bookedhall->delete();
         });
     }
 }
