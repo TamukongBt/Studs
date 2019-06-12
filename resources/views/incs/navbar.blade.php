@@ -26,6 +26,8 @@
                                 <a href="/lecturer" class="dropdown-item" role="button" aria-pressed="true">Lecturer </a>
                                 <a href="/option" class="dropdown-item" role="button" aria-pressed="true">Option </a>
                                 <a href="/schedule" class="dropdown-item" role="button" aria-pressed="true">Schedule</a>
+                                <a href="/generate" class="dropdown-item" role="button" aria-pressed="true">Free Halls</a>
+                                <a href="/book" class="dropdown-item" role="button" aria-pressed="true">Booked Hall</a>
                             </div>
                 </li>
             </ul>

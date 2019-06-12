@@ -94,7 +94,7 @@
                 </div> 
                 <div class="modal-body">
                     {{-- Form to input Free Period request based on date and time--}}
-                        <form action="{{ url('/book')}}" method="post" id="editform">
+                        <form action="/book" method="post" id="editform">
                             @csrf
                         <div class="row">
                                 <div class="form-group">
@@ -105,8 +105,16 @@
                                         <input type="text" class="form-control" name="Building" id="Building">
                                     </div>
                                 <div class="form-group  col-md-12">
-                                <strong>Day :</strong>
-                                    <input type="text" class="form-control" name="Day" id="Day">
+                                    <strong>Day :</strong>
+                                        <select type="text" name="Day" class="form-control" placeholder="Day" required>
+                                            <option disabled>Day</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option> 
+                                        </select>
                                 </div>
                                 <input type="hidden" class="form-control" name="PeriodID" id="PeriodID">
                                 
@@ -114,15 +122,30 @@
                                 <strong>ClassID :</strong>
                                     <input type="text" class="form-control" name="ClassID" value="ClassID" >
                                 </div>
-                                <div class="form-group  col-md-12">
-                                <strong>Capacity :</strong>
-                                    <input type="number" class="form-control" name="Capacity" id="Capacity">
+                                <div class="form-group col-sm-4 ">
+                                    <strong>Start Time :</strong>
+                                    <select class="form-control" placeholder="Start Time" name="StartTime" type="text"  required >
+                                        <option>Start Time</option>
+                                        <option value="7:00am">7:00 am</option>
+                                        <option value="9:00am">9:00 am</option>
+                                        <option value="11:00am">11:00 am</option>
+                                        <option value="1:00pm">1:00 pm</option>
+                                        <option value="3:00pm">3:00 pm</option>
+                                        <option value="5:00pm">5:00 pm</option>
+                                    </select>
                                 </div>
-                                <div class="form-group  col-sm-4">
-                                <strong>Access :</strong>
-                                <input type="text" class="form-control" name="Access" id="Access">
+                                <div class="form-group col-sm-4 ">
+                                    <strong>End Time :</strong>
+                                    <select class="form-control" placeholder="End Time" name="EndTime" type="text"  required >
+                                            <option>End Time</option>
+                                            <option value="9:00am">9:00 am</option>
+                                            <option value="11:00am">11:00 am</option>
+                                            <option value="1:00pm">1:00 pm</option>
+                                            <option value="3:00pm">3:00 pm</option>
+                                            <option value="5:00pm">5:00 pm</option>
+                                            <option value="7:00pm">7:00 pm</option>
+                                        </select>
                                 </div>
-                                
                                 <div class="form-group col-lg-12">
                                     <label for="Note">Note</label>
                                     <textarea id="Note" class="form-control" name="Note" rows="4" placeholder="Write Something....."> </textarea>

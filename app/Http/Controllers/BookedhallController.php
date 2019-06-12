@@ -16,7 +16,8 @@ class BookedhallController extends Controller
      */
     public function index()
     {
-        //
+        $book= Bookedhall::orderBy('Building','asc')->paginate(8); 
+        return view('book.index')->with('book',$book);
     }
 
     /**
@@ -45,53 +46,44 @@ class BookedhallController extends Controller
         else {return view('auth.login')->withErrors('You are not an Authenticated User');}
         $book->PeriodID = $request->PeriodID;
         $book->Building = $request->Building;
-        $book->Capacity = $request->Capacity;
         $book->ClassID = $request->ClassID;
-        $book->Access = $request->Access;
-        return $request->PeriodID;
-        $EndTime=null;
-        switch ($request->PeriodID) {
-            case '1':
-            $EndTime ='9:00 am';
-                break;
-            case '2':
-            $EndTime=  '11:00 am';
-                break;
-            case '3':
-            $EndTime= '1:00 pm';
-                break;
-            case '4':
-            $EndTime= '3:00 pm';
-                break;
-            case '5':
-            $EndTime= '5:00pm';
-                break;
-            case '6':
-            $EndTime='7:00pm';
-                break;    
-            case '7':
-        $EndTime= '11:00am';
-                break; 
-            case '8':
-            $EndTime='1:00pm';
-                break; 
-                case '9':
-            $EndTime='3:00pm';
-                break; 
-                case '10':
-            $EndTime='5:00pm';
-                break; 
-                case '11':
-            $EndTime='7:00pm';
-                break; 
-                default:
-                $EndTime= 'No entry';
-            }
-            return $EndTime;
-        $book->Duration = Carbon::parse($EndTime)->format('Y-m-d H:i:s');
-        return $book->Duration;
+        $book->Duration = Carbon::parse($request->EndTime)->format('Y-m-d H:i:s');
         $book->Note = $request->Note;
+        if (($request->get('StartTime')=='7:00am') && ( $request->get('EndTime')=='9:00am')) {
+            $book->PeriodID='1';}
+        else if (($request->get('StartTime')=='9:00am') && ($request->get('EndTime')=='11:00am')) {
+            $book->PeriodID='2';
+        }
+        else if (($request->get('StartTime')=='11:00am') && ($request->get('EndTime')=='1:00pm')) {
+            $book->PeriodID='3';
+        }  
+        else if (($request->get('StartTime')=='1:00pm') && ($request->get('EndTime')=='3:00pm')) {
+            $book->PeriodID='4'; 
+        }
+        else if (($request->get('StartTime')=='3:00pm') && ( $request->get('EndTime')=='5:00pm')) {
+            $book->PeriodID='5'; 
+        }
+        else if (($request->get('StartTime')=='5:00pm') && ($request->get('EndTime')=='7:00pm')) {
+        $book->PeriodID='6';
+        }
+            else if (($request->get('StartTime')=='7:00am') && ($request->get('EndTime')=='11:00am')) {
+            $book->PeriodID='7';
+        }
+        else if (($request->get('StartTime')=='9:00am') && ($request->get('EndTime')=='1:00pm')) {
+            $book->PeriodID='8';
+        }
+        else if (($request->get('StartTime')=='11:00am') && ($request->get('EndTime')=='3:00pm')) {
+            $book->PeriodID='9';
+                        }
+        else if (($request->get('StartTime')=='1:00pm') && ($request->get('EndTime')=='5:00pm')) {
+            $book->PeriodID='10'; } 
+        else if (($request->get('StartTime')=='3:00pm') && ($request->get('EndTime')=='7:00pm')) {
+            $book->PeriodID='11';} 
+            else {
+            $book->PeriodID='Non Available';
+            }               
         $book->save();
+        return view('book.lindex')->with('success','New Entry created succesfully');
         
 
     }
@@ -136,8 +128,9 @@ class BookedhallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyed()
     {
-        //
+        $deleted = Bookedhall::onlyTrashed()->get();
+        return view('book.deleted')->with('deleted', $deleted);
     }
 }

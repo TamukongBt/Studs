@@ -49,7 +49,6 @@ class ClassroomController extends Controller
         ]);
         $class = Classroom::create($data);
          return redirect()->route('class.index')->with('success','New Entry created succesfully');
-     
     }
 
     /**

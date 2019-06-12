@@ -53,14 +53,16 @@ Route::post('department/create','DepartmentController@store');
 Route::resource('option', 'OptionController');
 Route::post('option/create','OptionController@store');
 
-
+Route::post('/book/store','BookedhallController@store');
+Route::resource('book', 'BookedhallController');
+ 
 Route::resource('course', 'CourseController');
 Route::post('course/create','CourseController@store');
 Route::get('course/{CourseCode}','CourseController@show');
 
-Route::post('/book','BookedhallController@store');
 
 
+Route::get('/public',[ 'uses' => 'Auth\LoginController@getLogin', 'as '=>'login' ]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

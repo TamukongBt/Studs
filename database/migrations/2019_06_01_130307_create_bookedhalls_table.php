@@ -20,9 +20,7 @@ class CreateBookedhallsTable extends Migration
             $table->string('Day');
             $table->string('PeriodID');
             $table->string('Building');
-            $table->integer('Capacity');
             $table->string('ClassID');
-            $table->string('Access');
             $table->datetime('Duration');
             $table->string('Note')->nullable();
             $table->SoftDeletes();

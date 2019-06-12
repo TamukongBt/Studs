@@ -21,6 +21,12 @@ class ScheduleController extends Controller
         return view('schedulepages.schedule')->with('schedule',$schedule);
     }
 
+    public function lindex()
+    {
+        $schedule= Schedule::where('Lecturer', Auth::user()->name)->paginate(8); 
+        return view('lecturerHome')->with('schedule',$schedule);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -154,7 +160,7 @@ class ScheduleController extends Controller
             else if (($request->get('StartTime')=='3:00pm') && ($request->get('EndTime')=='7:00pm')) {
                 $schedule->PeriodID='11';} 
                 else {
-                $schedule->PeriodID='Mouffff';
+                $schedule->PeriodID='Non Available';
                 }               
             $schedule->ClassroomID=$request->get('ClassroomID');
             $schedule->DepartmentID=$request->get('DepartmentID');
