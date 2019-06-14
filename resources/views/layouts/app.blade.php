@@ -32,11 +32,7 @@
             @include('incs.messages')
           
        
-
-        <main class="py-4">
-            @yield('content')
-            <!-- Scripts -->
-            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/af-2.3.3/b-1.5.6/cr-1.5.0/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/datatables.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -45,6 +41,10 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
+        <main class="py-4">
+            @yield('content')
+            <!-- Scripts -->
+        
         </main>
         
     

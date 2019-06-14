@@ -6,27 +6,29 @@
 <div class="container-fluid">
  
 
-{{-- Display Free Periods Based on Date And Time --}}
-<table class="table table-bodered table-hover" id="datatable">
-        <thead >
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Building</th>
-            <th scope="col">Class Code</th>
-            <th scope="col">Capacity</th>
-            <th scope='col'>Hall Access</th>
-            <th scope='col'>Start Time </th>
-            <th scope='col'>End Time </th>
-            <th scope='col'>Day</th>
-            </tr>
-        </thead>
-    </div>
-    
+
     @if (count($all)>0)
+            {{-- Display Free Periods Based on Date And Time --}}
+        <table class="table table-bodered table-hover" id="datatable">
+            <thead >
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Building</th>
+                <th scope="col">Class Code</th>
+                <th scope="col">Capacity</th>
+                <th scope='col'>Hall Access</th>
+                <th scope='col'>Start Time </th>
+                <th scope='col'>End Time </th>
+                <th scope='col'>Day</th>
+                </tr>
+            </thead>
+        </div>
+
         
        <?php $id=1; ?>
         @foreach ($all as $class)
          @php
+            $linecolor=null;
              if ($class->Access=='Open') {
                  $linecolor = 'table-primary';
              }
@@ -77,7 +79,14 @@
 </div>
 
 @else
-<p>No Available Classes</p>
+<div class="alert alert-danger "   role="alert"> 
+    <div class="card text-center alert-danger " >
+        <div class="card-body alert-danger ">         
+          <h5 class="card-title text-dark " ><strong>Ooopss..!</strong></h5>
+          <p class="card-text text-dark" > All existing halls have been booked for day </p>
+          <a href="/lindex" class="btn btn-outline-dark btn-sm " >Go Back</a>
+        </div>
+      </div> 
 @endif
 
 

@@ -83,7 +83,7 @@ class BookedhallController extends Controller
             $book->PeriodID='Non Available';
             }               
         $book->save();
-        return view('book.lindex')->with('success','New Entry created succesfully');
+        return redirect()->route('book.index')->with('success','New Entry created succesfully');
         
 
     }

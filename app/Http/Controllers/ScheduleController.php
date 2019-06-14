@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\DB;
 Use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use App\Schedule;
-
+use App\Bookedhall;
+use App\Freehalls;
+use Auth;
 
 class ScheduleController extends Controller
 {  /**
@@ -23,8 +25,11 @@ class ScheduleController extends Controller
 
     public function lindex()
     {
-        $schedule= Schedule::where('Lecturer', Auth::user()->name)->paginate(8); 
-        return view('lecturerHome')->with('schedule',$schedule);
+        $freed=FreeHalls::all();
+        $schedule= Schedule::where('Lecturer', Auth::user()->name)->select(DB::raw(' `Day` As "Day",`PeriodID` AS "PeriodID",`ClassroomID` As "ClassID",`Lecturer` AS "Username",`CourseCode` AS "Coursecode",`CourseName` AS "CourseName",`DepartmentID`as "DepartmentID" '))->whereNotIn(['Day','PeriodID','ClassID'],$freed);
+        $booked= Bookedhall::where('Username',Auth::user()->name)->select(DB::raw(' `Day` As "Day",`PeriodID` AS "PeriodID",`ClassID` As "ClassID",Username AS "Username",CourseCode AS "Coursecode",CourseName AS "CourseName",DepartmentID as "DepartmentID"'))->whereNotIn(['Day','PeriodID','ClassID'],$freed);
+        $all=$schedule->union($booked)->paginate();
+        return view('lindex')->with('schedule',$all);
     }
 
     /**
@@ -38,7 +43,7 @@ class ScheduleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.       
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

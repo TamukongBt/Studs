@@ -40,6 +40,35 @@
                         </div>
 
                         <div class="form-group row">
+                                <label for="DepartmentID" class="col-md-4 col-form-label text-md-right">{{ __('DepartmentID') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="DepartmentID" type="text" class="form-control @error('DepartmentID') is-invalid @enderror" name="DepartmentID" autofocus>
+    
+                                    @error('DepartmentID')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        
+                            <div class="form-group row">
+                                    <label for="FacultyID" class="col-md-4 col-form-label text-md-right">{{ __('FacultyID') }}</label>
+        
+                                    <div class="col-md-6">
+                                        <input id="FacultyID" type="text" class="form-control @error('FacultyID') is-invalid @enderror" name="FacultyID" autofocus>
+        
+                                        @error('FacultyID')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

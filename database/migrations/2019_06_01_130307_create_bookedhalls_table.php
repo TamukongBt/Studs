@@ -21,6 +21,9 @@ class CreateBookedhallsTable extends Migration
             $table->string('PeriodID');
             $table->string('Building');
             $table->string('ClassID');
+            $table->string('CourseCode');
+            $table->string('CourseName');
+            $table->string('DepartmentID');
             $table->datetime('Duration');
             $table->string('Note')->nullable();
             $table->SoftDeletes();

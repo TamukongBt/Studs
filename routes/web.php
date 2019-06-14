@@ -17,10 +17,15 @@
 
 Route::get('about','PagesController@about');
 Route::get('index','PagesController@index');
+Route::get('admin','PagesController@admin');
 
 
 Route::get('free/hall', 'FreehallController@freehall');
 Route::get('generate', 'FreehallController@all');
+Route::post('freed/create', 'FreehallController@store');
+
+Route::get('/public/register', 'SelectCotrolleController@index');
+Route::get('faculty/get/{facultyid}', 'SelectController@getDepartment');
 
 
 Route::resource('class', 'ClassroomController');
@@ -30,9 +35,11 @@ Route::group(['prefix' => '/class'], function () {
     Route::post('/edit/{id}','ClassroomController@update');
 });
 
-Route::get('schedule/search', 'ScheduleController@search');
+Route::get('/lindex', 'ScheduleController@lindex')->name('lindex'); 
 Route::resource('schedule', 'ScheduleController');
 Route::group(['prefix' => 'schedule'], function () {
+      
+    Route::get('/search', 'ScheduleController@search');
     Route::get('/{Day}/{id}','ScheduleController@show')->name('show');
     Route::get('/{CourseCode}/{id}','ScheduleController@showCourse')->name('showCourse');
     Route::post('/create','ScheduleController@store');

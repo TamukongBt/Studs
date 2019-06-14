@@ -6,93 +6,94 @@
 
 <div class="container-fluid">
 
-<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
-    Search For a Free Hall
-  </button>
+
+    @if (count($schedule)>0)
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
+      Search For a Free Hall
+    </button>
+    
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style=" border: 1px solid rgba(18, 149, 182, 0.76);">
+          <div class="card-header" style=" background-color: rgba(18, 149, 182, 0.76);">
+            <h5 class="modal-title" id="exampleModalLongTitle">Search for a free hall</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:-25px;">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              {{-- Form to input Free Period request based on date and time--}}
+                  <form action="{{ url('/free/hall')}}" method="get">
+                      @csrf
+                  <div class="row">
+                          <div class="form-group">
+                              <input type="hidden" value=" {{ csrf_token()}}" name="_token" />
+                          </div>
+                          <div class="form-group  col-sm-4">
+                          <strong>Day :</strong>
+                              <select type="text" name="Day" class="form-control" placeholder="Day" required>
+                                  <option disabled>Day</option>
+                                  <option value="Monday">Monday</option>
+                                  <option value="Tuesday">Tuesday</option>
+                                  <option value="Wednesday">Wednesday</option>
+                                  <option value="Thursday">Thursday</option>
+                                  <option value="Friday">Friday</option>
+                                  <option value="Saturday">Saturday</option> 
+                              </select>
+                          </div>
+                          <div class="form-group col-sm-4 ">
+                              <strong>Start Time :</strong>
+                              <select class="form-control" placeholder="Start Time" name="StartTime" type="text"  required >
+                                  <option>Start Time</option>
+                                  <option value="7:00am">7:00 am</option>
+                                  <option value="9:00am">9:00 am</option>
+                                  <option value="11:00am">11:00 am</option>
+                                  <option value="1:00pm">1:00 pm</option>
+                                  <option value="3:00pm">3:00 pm</option>
+                                  <option value="5:00pm">5:00 pm</option>
+                              </select>
+                          </div>
+                          <div class="form-group col-sm-4 ">
+                              <strong>End Time :</strong>
+                              <select class="form-control" placeholder="End Time" name="EndTime" type="text"  required >
+                                  <option>End Time</option>
+                                  <option value="9:00am">9:00 am</option>
+                                  <option value="11:00am">11:00 am</option>
+                                  <option value="1:00pm">1:00 pm</option>
+                                  <option value="3:00pm">3:00 pm</option>
+                                  <option value="5:00pm">5:00 pm</option>
+                                  <option value="7:00pm">7:00 pm</option>
+                              </select>
+                          </div>
+                          </div>
+                          <div class="pull-right">
+                          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                          </div>       
+                  </div>
+                  </form>
+              </div>
+              {{-- End of Form --}}
+              </div>
+            </div>
   
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style=" border: 1px solid rgba(18, 149, 182, 0.76);">
-        <div class="card-header" style=" background-color: rgba(18, 149, 182, 0.76);">
-          <h5 class="modal-title" id="exampleModalLongTitle">Search for a free hall</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:-25px;">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            {{-- Form to input Free Period request based on date and time--}}
-                <form action="{{ url('/free/hall')}}" method="get">
-                    @csrf
-                <div class="row">
-                        <div class="form-group">
-                            <input type="hidden" value=" {{ csrf_token()}}" name="_token" />
-                        </div>
-                        <div class="form-group  col-sm-4">
-                        <strong>Day :</strong>
-                            <select type="text" name="Day" class="form-control" placeholder="Day" required>
-                                <option disabled>Day</option>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option> 
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-4 ">
-                            <strong>Start Time :</strong>
-                            <select class="form-control" placeholder="Start Time" name="StartTime" type="text"  required >
-                                <option>Start Time</option>
-                                <option value="7:00am">7:00 am</option>
-                                <option value="9:00am">9:00 am</option>
-                                <option value="11:00am">11:00 am</option>
-                                <option value="1:00pm">1:00 pm</option>
-                                <option value="3:00pm">3:00 pm</option>
-                                <option value="5:00pm">5:00 pm</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-4 ">
-                            <strong>End Time :</strong>
-                            <select class="form-control" placeholder="End Time" name="EndTime" type="text"  required >
-                                <option>End Time</option>
-                                <option value="9:00am">9:00 am</option>
-                                <option value="11:00am">11:00 am</option>
-                                <option value="1:00pm">1:00 pm</option>
-                                <option value="3:00pm">3:00 pm</option>
-                                <option value="5:00pm">5:00 pm</option>
-                                <option value="7:00pm">7:00 pm</option>
-                            </select>
-                        </div>
-                        </div>
-                        <div class="pull-right">
-                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                        </div>       
+  
+    
+            <div class="col-md-4 " style="float:right;">
+                <form action="schedule/search" method="get">
+                <div class="input-group" >
+                  <input type="search" name="search" class="form-control" placeholder="Search By Day">
+                  <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-info">Search</button>
+                  </span>
                 </div>
                 </form>
-            </div>
-            {{-- End of Form --}}
-            </div>
-          </div>
-
-
-
-  
-          <div class="col-md-4 " style="float:right;">
-              <form action="schedule/search" method="get">
-              <div class="input-group" >
-                <input type="search" name="search" class="form-control" placeholder="Search By Day">
-                <span class="input-group-prepend">
-                  <button type="submit" class="btn btn-info">Search</button>
-                </span>
-              </div>
-              </form>
-          </div>
-        
+            </div>s        
     <div class="table-responsive text-nowrap">
-    @if (count($schedule)>0)
+
     <div class="pull-right">
         <a href="/schedule/create" class="btn btn-outline-primary btn-sm pull-right" >Add Data</a>
     </div>

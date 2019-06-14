@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 Use Illuminate\Pagination\LengthAwarePaginator;
 use App\FreeHalls;
 use DB;
+use Auth;
+use Carbon\Carbon;
 
 class FreehallController extends Controller
 { 
@@ -162,5 +164,120 @@ class FreehallController extends Controller
         return view('free.free')->with('free', $paginatedItems);
     }
 
+    public function store(Request $request)
+    {
+        $book = new Freehalls;
+        $book->Day = $request->Day;
+        $book->PeriodID = $request->PeriodID;
+        $book->Building = $request->Building;
+        $book->ClassID = $request->ClassID;
+        $book->Duration = Carbon::parse($request->EndTime)->format('Y-m-d H:i:s');
+        $due=Carbon::parse($book->Duration)->format('Y-m-d');
+        $book->Note = $request->Note;
+        $book->DepartmentID=$request->DepartmentID;
+        if (($request->get('StartTime')=='7:00am') && ( $request->get('EndTime')=='9:00am')) {
+            $book->PeriodID='1';}
+        else if (($request->get('StartTime')=='9:00am') && ($request->get('EndTime')=='11:00am')) {
+            $book->PeriodID='2';
+        }
+        else if (($request->get('StartTime')=='11:00am') && ($request->get('EndTime')=='1:00pm')) {
+            $book->PeriodID='3';
+        }  
+        else if (($request->get('StartTime')=='1:00pm') && ($request->get('EndTime')=='3:00pm')) {
+            $book->PeriodID='4'; 
+        }
+        else if (($request->get('StartTime')=='3:00pm') && ( $request->get('EndTime')=='5:00pm')) {
+            $book->PeriodID='5'; 
+        }
+        else if (($request->get('StartTime')=='5:00pm') && ($request->get('EndTime')=='7:00pm')) {
+        $book->PeriodID='6';
+        }
+            else if (($request->get('StartTime')=='7:00am') && ($request->get('EndTime')=='11:00am')) {
+            $book->PeriodID='7';
+        }
+        else if (($request->get('StartTime')=='9:00am') && ($request->get('EndTime')=='1:00pm')) {
+            $book->PeriodID='8';
+        }
+        else if (($request->get('StartTime')=='11:00am') && ($request->get('EndTime')=='3:00pm')) {
+            $book->PeriodID='9';
+                        }
+        else if (($request->get('StartTime')=='1:00pm') && ($request->get('EndTime')=='5:00pm')) {
+            $book->PeriodID='10'; } 
+        else if (($request->get('StartTime')=='3:00pm') && ($request->get('EndTime')=='7:00pm')) {
+            $book->PeriodID='11';} 
+            else {
+            $book->PeriodID='Non Available';
+            }               
+        $book->save();
+         return redirect()->back()->with('success','Course Has Been freed Until '. $due);
+        
+
+    }
+
+    public function index()
+    {
+      //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+       //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    /** 
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+      //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+      //
+    }
    
 }
