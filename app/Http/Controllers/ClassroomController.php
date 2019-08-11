@@ -57,9 +57,9 @@ class ClassroomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
-        $class= Classroom::find($id);
+        $class= Classroom::find($request);
         return view('classpages.modal')->with('class', $class);
     }
 
@@ -107,7 +107,7 @@ class ClassroomController extends Controller
         // Delete Class
         $classroom = Classroom::findorFail($id);
         Classroom::whereId($classroom['id'])->delete();
-        return redirect('/classroom')->with('success', 'Classroom has been deleted!!');
+        return redirect('/class')->with('success', 'Classroom has been deleted!!');
     }
 
    

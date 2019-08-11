@@ -24,8 +24,7 @@ Route::get('free/hall', 'FreehallController@freehall');
 Route::get('generate', 'FreehallController@all');
 Route::post('freed/create', 'FreehallController@store');
 
-Route::get('/public/register', 'SelectCotrolleController@index');
-Route::get('faculty/get/{facultyid}', 'SelectController@getDepartment');
+
 
 
 Route::resource('class', 'ClassroomController');
