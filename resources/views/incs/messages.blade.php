@@ -1,6 +1,9 @@
 @if ($errors->any())
 <div class="alert alert-danger">
   <strong>Whoops! </strong> there where some problems with your input.<br>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   <ul>
     <?php
        if (count($errors)>0) {
@@ -15,11 +18,17 @@
 @if(session('success'))
     <div class="alert alert-success">
         {{session('success')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
     </div>
 @endif
 
 @if(session('error'))
     <div class="alert alert-danger">
         {{session('error')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
     </div>
 @endif

@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+
+
+}
+#loader{
+    height: 1500px;
+    width: 1700px;
+    background-color: #218eee;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    transition:1s ease;
+    
+}
+
+#loader img{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}

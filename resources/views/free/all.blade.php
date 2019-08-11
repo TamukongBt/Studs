@@ -2,28 +2,26 @@
 @section('content')
     @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
 
-    <div class="container-fluid">
 
 
-        @if (count($all)>0)
-            {{-- Display Free Periods Based on Date And Time --}}
-            <table class="table table-bodered table-hover" id="datatable">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Building</th>
-                    <th scope="col">Class Code</th>
-                    <th scope="col">Capacity</th>
-                    <th scope='col'>Hall Access</th>
-                    <th scope='col'>Start Time</th>
-                    <th scope='col'>End Time</th>
-                    <th scope='col'>Day</th>
-                </tr>
-                </thead>
-    </div>
+    @if (count($all)>0)
+        {{-- Display Free Periods Based on Date And Time --}}
+        <table class="table table-bodered table-hover" id="datatable">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Building</th>
+                <th data-card-title scope="col">Class Code</th>
+                <th scope="col">Capacity</th>
+                <th scope='col'>Hall Access</th>
+                <th data-card-footer  scope='col'>Start Time</thdata-card-footer>
+                <th data-card-footer scope='col'>End Time</th>
+                <th scope='col'>Day</th>
+            </tr>
+            </thead>
 
 
-    <?php $id = 1; ?>
+        <?php $id = 1; ?>
     @foreach ($all as $class)
         @php
             $linecolor=null;
