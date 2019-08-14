@@ -3,17 +3,28 @@
 @extends('layouts.app')
 @section('content')
     @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
-
+    {{-- Back to Top Button --}}
+    <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a>
     <div class="container-fluid">
 
 
         @if (count($schedule)>0)
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
-                Search For a Free Hall
-            </button>
+            {{-- FAB BUtton at page bottom  --}}
+            <nav class="cont">
+
+                <a href="#" class="buttons" tooltip="Search For A Free Hall" data-toggle="modal"
+                   data-target="#exampleModalCenter"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+                <a href="/schedule/create" class="buttons" tooltip="Add New Hall"><i class="fa fa-pencil"
+                                                                                     aria-hidden="true"></i></a>
+
+                <a class="buttons" tooltip="Menu" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+            </nav>
 
 
-            <!-- Modal -->
+
+            <!-- Modal for search a free hall-->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -86,25 +97,12 @@
 
 
 
-
-            <div class="col-md-4 " style="float:right;">
-                <form action="schedule/search" method="get">
-                    <div class="input-group">
-                        <input type="search" name="search" class="form-control" placeholder="Search By Day">
-                        <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-info">Search</button>
-                  </span>
-                    </div>
-                </form>
-            </div>s
-
             <div class="pull-right">
-                <a href="/schedule/create" class="btn btn-outline-primary btn-sm pull-right">Add Data</a>
+
             </div>
-            <table class="table table-bodered w-auto">
+            <table id="myTable" class="table table-bodered">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Day</th>
                     <th scope="col">Course Code</th>
                     <th scope="col">Course Name</th>
@@ -115,6 +113,7 @@
                     <th scope="col">Department ID</th>
                     <th scope="col">Lecturer</th>
                     <th scope="col">Level</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <?php $id = 1; ?>
@@ -122,7 +121,6 @@
 
                     <tbody>
                     <tr>
-                        <th scope="row">{{ $id++ }}</th>
                         <td><a href="{{ route('show',['Day'=>$entry->Day,'id' => $entry->id]) }}"> {{ $entry->Day }}
                             </a></td>
                         <td><a href="{{ route('course.show',$entry->CourseCode) }}">{{ $entry->CourseCode }}</a></td>
@@ -147,28 +145,35 @@
                         <td>{{ $entry->Level }}</td>
                         <td>
                             <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal"
-                                    data-target="#delete">
-                                Delete
+                                    data-target="#delete" style="cursor:pointer;">
+                                <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
                             </button>
+                            <style>
+
+                            </style>
 
                             <!-- Modal to confirm Delete-->
-                            <div class="modal fade text-center" id="delete" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="delete" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered " role="document">
                                     <div class="modal-content" style=" border: 1px solid rgba(220, 20, 60, 0.808);">
                                         <div class="card-header" style=" background-color: rgba(220, 20, 60, 0.808);">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Confirm Delete</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                                    style="margin-top:-25px;">
+                                            <button href="#" type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"
+                                                    style="margin-top:-25px;cursor:pointer">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Are you sure you want to delete this entry
+                                            <div class="container">
+                                                Are you sure you want to delete this entry
+                                            </div>
+
                                         </div>
                                         <div class="modal-footer float-right">
                                             <button type="button" class="btn btn-outline-dark btn-sm"
-                                                    data-dismiss="modal">
+                                                    data-dismiss="modal" style="cursor:pointer;">
                                                 No
                                             </button>
                                             <form action="{{  route('schedule.destroy', $entry->id)}}" method="post">
@@ -180,15 +185,16 @@
                                     </div>
                                 </div>
                             </div>
+    </div>
 
-                        </td>
-                        <td>
-                            <a class="btn btn-outline-primary btn-sm" href="/schedule/{{ $entry->id }}/edit">Edit</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                @endforeach
-            </table>
+    <a class="btn btn-outline-primary btn-sm" href="/schedule/{{ $entry->id }}/edit"><i class="fa fa-pencil-square"
+                                                                                        aria-hidden="true"
+                                                                                        style="color: black"></i></a>
+    </td>
+    </tr>
+    </tbody>
+    @endforeach
+    </table>
     </div>
 
     {!! $schedule->render() !!}
@@ -204,6 +210,7 @@
             </div>
         </div>
     @endif
+
 
 
 @endsection

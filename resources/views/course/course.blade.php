@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <a href="{{ route('course.create') }}" class="btn btn-outline-primary btn-sm">Add Entry</a>
+        <div class="fab">  <a href="{{ route('course.create') }}" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
+      
         <div class="table-responsive text-nowrap">
-                <table class="table table-bodered">
+                <table class="tablesaw tablesaw-stack tablesaw-row-zebra table table-bodered" data-tablesaw-mode="stack" >
                         <thead >
                             <tr>
                             <th scope="col">#</th>
@@ -18,7 +19,7 @@
                             
                             </tr>
                         </thead>
-                    </div>
+                    
                     @if (count($course)>0)
                         
                        <?php $id=1; ?>

@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="274ea8ca-4e3a-49da-8a43-1d1aa5c0a08e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/fab.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fab.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/preloader.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/preloader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/tableToCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/tableToCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/free/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/free/all.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/course/course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/course.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/department/department.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/department/department.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/incs/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/incs/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/classroom.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/classroom.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lecturer/lecturer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lecturer/lecturer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/option/option.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/option/option.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/classroom.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -44,8 +55,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="221" selection-start-line="15" selection-start-column="221" selection-end-line="15" selection-end-column="221" />
+            <state relative-caret-position="354">
+              <caret line="36" column="57" selection-end-line="114" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2088">
+              <caret line="87" column="45" lean-forward="true" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -59,24 +79,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../PHPT/table.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1608">
-              <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../PHPT/js/tableToCards.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -86,13 +88,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/book/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BookedhallController.php" />
         <option value="$PROJECT_DIR$/resources/views/free/all.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/public/css/fab.css" />
         <option value="$PROJECT_DIR$/resources/views/pages/classroom.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php" />
       </list>
     </option>
   </component>
@@ -193,7 +195,38 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="studs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="schedulepages" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -247,6 +280,7 @@
       <workItem from="1562928505922" duration="1370000" />
       <workItem from="1563175347874" duration="1392000" />
       <workItem from="1563199242808" duration="215000" />
+      <workItem from="1565780456718" duration="408000" />
     </task>
     <task id="LOCAL-00001" summary="BAck on track">
       <created>1562808862884</created>
@@ -259,12 +293,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19820000" />
+    <option name="totallyTimeSpent" value="20228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989605" weight="0.25899744" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989605" visible="true" weight="0.25899744" />
       <window_info id="Structure" order="1" sideWeight="0.5010395" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -374,13 +409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2856">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/free/all.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -392,13 +420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="221" selection-start-line="15" selection-start-column="221" selection-end-line="15" selection-end-column="221" />
         </state>
       </provider>
     </entry>
@@ -427,6 +448,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="36" column="57" selection-end-line="114" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/schedulepages/schedule.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2088">
+          <caret line="87" column="45" lean-forward="true" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
         </state>
       </provider>
     </entry>

@@ -11,7 +11,7 @@
       <input class="form-control" type="text" placeholder="Search" id="search" name="search" aria-label="Search">
       
     </div>
-    <a href="/option/create" class="btn btn-outline-primary active-cyan-2">Add Entry</a>
+    <div class="fab">  <a href="/option/create" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
     <div class="row">
     @foreach ($option as $item)
     
