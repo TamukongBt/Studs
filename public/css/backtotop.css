@@ -1,0 +1,47 @@
+
+#return-to-top {
+    position: fixed;
+    align-content: center;
+    bottom: 20px;
+    left: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14),
+    0 4px 8px rgba(0, 0, 0, .28);
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+#return-to-top i {
+    color: #218eee;
+    margin: 0;
+    position: relative;
+    left: 6.5px;
+    top: 3px;
+    font-size: 17px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover i {
+    color: #218eee;
+    top: .5px;
+}
