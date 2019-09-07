@@ -16,25 +16,25 @@
                                       echo  '1:00 pm';
                                           break;
                                       case '5':
-                                      echo '3:00pm';
+                                      echo '3:00 pm';
                                           break;
                                       case '6':
-                                      echo '5:00pm';
+                                      echo '5:00 pm';
                                           break; 
                                       case '7':
-                                      echo '7:00am';
+                                      echo '7:00 am';
                                           break; 
                                       case '8':
-                                      echo '9:00am';
+                                      echo '9:00 am';
                                           break; 
                                       case '9':
-                                      echo '11:00am';
+                                      echo '11:00 am';
                                           break; 
                                       case '10':
-                                      echo '1:00pm';
+                                      echo '1:00 pm';
                                           break; 
                                       case '11':
-                                      echo '3:00pm';
+                                      echo '3:00 pm';
                                           break; 
                                           default:
                                           echo 'No entry';
@@ -57,25 +57,25 @@
                             echo  '3:00 pm';
                                 break;
                             case '5':
-                            echo '5:00pm';
+                            echo '5:00 pm';
                                 break;
                             case '6':
-                            echo '7:00pm';
+                            echo '7:00 pm';
                                 break;    
                             case '7':
-                            echo '11:00am';
+                            echo '11:00 am';
                                 break; 
                             case '8':
-                            echo '1:00pm';
+                            echo '1:00 pm';
                                 break; 
                                 case '9':
-                            echo '3:00pm';
+                            echo '3:00 pm';
                                 break; 
                                 case '10':
-                            echo '5:00pm';
+                            echo '5:00 pm';
                                 break; 
                                 case '11':
-                            echo '7:00pm';
+                            echo '7:00 pm';
                                 break; 
                                 default:
                                 echo 'No entry';

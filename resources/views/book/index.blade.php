@@ -7,15 +7,16 @@
 
     @if (count($book)>0)
         {{-- Display Booked Periods Based on Date And Time --}}
-        <table class="table table-bodered table-hover" id="datatable">
+        <table class="table table-bodered table-hover" id="dataTable">
             <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope='col'>Lecturer</th>
                 <th scope="col">Day</th>
                 <th scope="col">Building</th>
                 <th scope="col">ClassID</th>
                 <th scope='col'>Start Time</th>
                 <th scope='col'>End Time</th>
+                <th scope='col'>Course Code</th>
             </tr>
             </thead>
 
@@ -25,17 +26,13 @@
 
                 <tbody>
                 <tr>
-                    <th scope="row">{{ $id++ }}</th>
-                    <td>
-                        {{ $class->Day }}
-                    </td>
+                    <td>{{ $class->Username }}</td>
+                    <td>{{ $class->Day }}</td>
                     <td>{{ $class->Building }}</td>
                     <td>{{ $class->ClassID }}</td>
                     <td>
                         @php
-
                             PeriodS( $class->PeriodID );
-
                         @endphp
                     </td>
                     <td>
@@ -43,19 +40,12 @@
                             PeriodE( $class->PeriodID );
                         @endphp
                     </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-success edit" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                            Book This Hall
-                        </button>
-                    </td>
+                    <td>{{ $class->CourseCode }}</td>
                 </tr>
                 </tbody>
-
             @endforeach
-
         </table>
-        {{ $all->links() }}
+        {{ $book->links() }}
 
 
 
@@ -68,7 +58,9 @@
                     <a href="/lindex" class="btn btn-outline-dark btn-sm ">Go Back</a>
                 </div>
             </div>
-        @endif
+        </div>
+
+    @endif
 
 
         <!-- Modal -->
@@ -78,7 +70,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content" style=" border: 1px solid rgba(18, 149, 182, 0.76);">
                         <div class="card-header" style=" background-color: rgba(18, 149, 182, 0.76);">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Book a free hall</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Book This Hall</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                                     style="margin-top:-25px;">
                                 <span aria-hidden="true">&times;</span>
@@ -175,33 +167,6 @@
                 </div>
             </div>
 
-
-            <script type="text/javascript">
-
-                $(document).ready(function () {
-                    var table = $('#datatable').DataTable();
-                    //Start Edit Record
-                    table.on('click', '.edit', function () {
-
-                        $tr = $(this).closest('tr');
-                        if ($($tr).hasClass('child')) {
-                            $tr = $tr.prev('.parent');
-                        }
-
-                        var data = table.row($tr).data();
-                        console.log(data);
-
-                        $('#Building').val(data[1]);
-                        $('#ClassID').val(data[2]);
-                        $('#Capacity').val(data[3]);
-                        $('#Access').val(data[4]);
-                        $('#PeriodID').val(data[5]);
-                        $('#Day').val(data[6]);
-
-                        $('#editform').attr('action', '/employee/' + data[0],);
-                    });
-                });
-            </script>
 
 
 @endsection

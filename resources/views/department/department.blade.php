@@ -3,6 +3,7 @@
 
 
 <div class="container">
+
   @if (count($department)>0)
 
   <div class="fab"> <a href="/department/create" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
@@ -34,8 +35,11 @@
           <td>{{ $item->FacultyName}}</td>
           <td>{{ $item->FacultyID }}</td>
           <td><a href="{{ route('department.edit',$item->id)}}"
-              class="btn btn-sm btn-rounded btn-outline-secondary my-0">Edit</a>  <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#delete">
-              Delete
+                 class="btn btn-sm btn-rounded btn-outline-secondary my-0"><i class="fa fa-pencil-square"
+                                                                              aria-hidden="true"
+                                                                              style="color: black"></i></a>
+              <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#delete">
+                  <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
             </button></td>
 
 

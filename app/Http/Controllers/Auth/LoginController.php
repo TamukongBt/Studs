@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -27,19 +26,10 @@ class LoginController extends Controller
      * @var string
      */
     protected function redirectTo( ) {
-        if (Auth::check() && Auth::user()->role == 'admin') {
-            return('/admin');
-        }
-        elseif (Auth::check() && Auth::user()->role == 'lecturer') {
-            return('/lindex');
-        }
-        elseif (Auth::check() && Auth::user()->role == 'coursedelegate') {
-            return('/coursedelegate');
-        }
-        else {
-            return('/home');
-        }
+
+        return ('/home');
     }
+      
 
      public function getLogout()
     {

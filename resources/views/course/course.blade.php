@@ -36,7 +36,7 @@
                                         <td>{{ $item->OptionID }}</td>
                                         <td>{{ $item->CourseType }}</td>
                                         <td>{{ $item->Level }}</td>
-                                        <td>{{ $item->LecturerName }}</td>
+                                          <td>{{ $item->LecturerName }} </td>
                                         <td>@php
                                             if($item->LecturerName2==null){
                                               echo 'Non Availaible';
@@ -46,9 +46,15 @@
                                             }
                                         @endphp</td>
                                         <td>{{ $item->DepartmentID }}</td>
+                                          <td>
+                                              <a class="btn btn-outline-light btn-sm"
+                                                 href="/course/{{ $item->id }}/edit"><i class="fa fa-pencil-square"
+                                                                                        aria-hidden="true"
+                                                                                        style="color: black"></i></a>
+                                          </td>
                                         <td>
                                             <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#delete">
-                                                Delete
+                                                <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
                                               </button>
                                               
                                               <!-- Modal to confirm Delete-->
@@ -75,9 +81,6 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                        </td>
-                                        <td>
-                                                <a class="btn btn-outline-light btn-sm" href="/course/{{ $item->id }}/edit">Edit</a>
                                         </td>
                                       </tr>
                                     </tbody>

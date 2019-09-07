@@ -5,24 +5,18 @@
     @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
     {{-- Back to Top Button --}}
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a>
-    <div class="container-fluid">
 
 
-        @if (count($schedule)>0)
+    @if (count($schedule)>0)
             {{-- FAB BUtton at page bottom  --}}
-            <nav class="cont">
-
-                <a href="#" class="buttons" tooltip="Search For A Free Hall" data-toggle="modal"
-                   data-target="#exampleModalCenter"><i class="fa fa-search" aria-hidden="true"></i></a>
-
-                <a href="/schedule/create" class="buttons" tooltip="Add New Hall"><i class="fa fa-pencil"
-                                                                                     aria-hidden="true"></i></a>
-
-                <a class="buttons" tooltip="Menu" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-
-            </nav>
-
-
+            <a class="mfab" id="bars"> <i id="bars" class="fa fa-bars" aria-hidden="true"
+                                          style="font-size:x-large;"></i> </a>
+            <a id="fab1" href="schedule/create" class="mfab1"> <i class="fa fa-pencil text-dark" aria-hidden="true"></i>
+            </a>
+            <a id="fab2" data-toggle="modal" data-target="#exampleModalCenter" class="mfab2"> <i class="fa fa-search"
+                                                                                                 aria-hidden="true"></i>
+            </a>
+         
 
             <!-- Modal for search a free hall-->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -96,24 +90,24 @@
             </div>
 
 
-
             <div class="pull-right">
 
             </div>
-            <table id="myTable" class="table table-bodered">
+            <table id="myTable" class="table table-striped table-bordered table-responsive">
                 <thead>
                 <tr>
-                    <th scope="col">Day</th>
-                    <th scope="col">Course Code</th>
-                    <th scope="col">Course Name</th>
-                    <th scope="col">Option Code</th>
-                    <th scope="col">Start Time</th>
-                    <th scope="col">End Time</th>
-                    <th scope="col">Classroom ID</th>
-                    <th scope="col">Department ID</th>
-                    <th scope="col">Lecturer</th>
-                    <th scope="col">Level</th>
-                    <th scope="col"></th>
+                    <th class="all" scope="col">Day</th>
+                    <th class="all" scope="col">Course Code</th>
+                    <th class="none" scope="col">Course Name</th>
+                    <th class="none" scope="col">Option Code</th>
+                    <th class="all" scope="col">Start Time</th>
+                    <th class="none" scope="col">End Time</th>
+                    <th class="all" scope="col">Classroom ID</th>
+                    <th class="none" scope="col">Department ID</th>
+                    <th class="none" scope="col">Lecturer</th>
+                    <th class="none" scope="col">Level</th>
+
+                    <th class="none" scope="col"></th>
                 </tr>
                 </thead>
                 <?php $id = 1; ?>
@@ -148,9 +142,7 @@
                                     data-target="#delete" style="cursor:pointer;">
                                 <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
                             </button>
-                            <style>
 
-                            </style>
 
                             <!-- Modal to confirm Delete-->
                             <div class="modal fade" id="delete" tabindex="-1" role="dialog"
@@ -186,7 +178,6 @@
                                 </div>
                             </div>
     </div>
-
     <a class="btn btn-outline-primary btn-sm" href="/schedule/{{ $entry->id }}/edit"><i class="fa fa-pencil-square"
                                                                                         aria-hidden="true"
                                                                                         style="color: black"></i></a>
@@ -195,9 +186,9 @@
     </tbody>
     @endforeach
     </table>
-    </div>
 
-    {!! $schedule->render() !!}
+
+            {!! $schedule->render() !!}
     @else
         <div class="alert alert-info " role="alert">
             <div class="card text-center alert-info ">

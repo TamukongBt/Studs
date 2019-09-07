@@ -6,15 +6,15 @@
         <div class="fab">  <a href="/class/create" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
 
 
-        <table class="table table-bodered" id="datatable" data-card-heigth="200">
+        <table class="table table-bodered" id="myTable">
             <thead>
             <tr>
-                <th data-card-title  scope="col">Building</th>
-                <th data-card-action-links scope="col">Class Code</th>
-                <th data-card-subtitle  scope="col">Capacity</th>
-                <th data-card-subtitle scope='col'>Hall Access</th>
-                <th  data-card-footer scope='col'></th>
-                <th data-card-footer scope='col'></th>
+                <th>Building</th>
+                <th>Class Code</th>
+                <th>Capacity</th>
+                <th>Hall Access</th>
+                <th></th>
+
             </tr>
             </thead>
         <?php $id = 1; ?>
@@ -36,15 +36,16 @@
                 <tbody>
                 <tr class="{{ $linecolor}}">
                     <td><a href="/class/{{ $class->id }}">
-                            <button type="button" class="btn btn-link text-dark" data-toggle="modal"
-                                    data-target="#exampleModalCenter">
                                 {{ $class->Building }}
-                            </button>
+
                         </a></td>
                     <td>{{ $class->ClassID }}</td>
                     <td>{{ $class->Capacity }}</td>
                     <td>{{ $class->Access }}</td>
                     <td>
+                        <a class="btn btn-outline-danger btn-sm" href="/class/{{ $class->id }}/edit"><i
+                                    class="fa fa-pencil-square" aria-hidden="true" style="color: black"></i></a>
+                        <p></p>
                         <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal"
                                 data-target="#delete">
                             <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
@@ -78,9 +79,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>
-                        <a class="btn btn-outline-danger btn-sm" href="/class/{{ $class->id }}/edit"><i class="fa fa-pencil-square" aria-hidden="true" style="color: black"></i></a>
-                    </td>
+
                 </tr>
                 </tbody>
 
