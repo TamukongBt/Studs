@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('content')
+    @if (Auth::user()->admin==0)
+        <script>window.location.href = "/lindex"; </script>;
+    @endif
       <!-- fORM -->
-  
-              
-      <div class="card">
+    <div class="container">
+        <div class="card">
           <h5 class="card-header">Create a Class</h5>
             <div class="card-body">
                 <form method="post" action="{{ route('class.update',['id' => $id])}}"  >
@@ -41,6 +43,6 @@
                     </form>
                   </div>
                 </div>
-              
-    
+
+    </div>
 @endsection

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-
-
+    @if (Auth::user()->admin==0)
+        <script>window.location.href = "/lindex"; </script>;
+    @endif
 <div class="container">
     @if (count($lecturer)>0)
     
@@ -11,8 +12,9 @@
       <input class="form-control" type="text" placeholder="Search" id="search" name="search" aria-label="Search">
       
     </div>
+        @if (Auth::user()->admin==1)
     <div class="fab"><a href="/lecturer/create" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
-  
+        @endif
     <div class="row">
     @foreach ($lecturer as $item)
     
@@ -26,11 +28,12 @@
             <p class="card-text">Telephone: {{ $item->telephone }}</p>
             <small>Email: {{ $item->email }}</small>
             <div style="float:right; display:-webkit-inline-flex;">
+                @if (Auth::user()->admin==1)
             <small ><a href="{{ route('lecturer.edit',$item->id)}}" class="btn btn-sm btn-rounded btn-outline-secondary my-0">Edit</a></small>
             <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#delete">
                 Delete
               </button>
-              
+            @endif
               <!-- Modal to confirm Delete-->
               <div class="modal fade text-center" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered " role="document">
@@ -72,7 +75,9 @@
         <div class="card-body alert alert-info">         
           <h5 class="card-title"><strong>Ooopss..!</strong></h5>
           <p class="card-text"> There are no Teachers in this university...not yet</p>
+            @if (Auth::user()->admin==1)
           <a href="/lecturer/create" class="btn btn-outline-primary active-cyan-2">Add Entry</a>
+            @endif
         </div>
       </div> 
      
@@ -81,7 +86,9 @@
     
 </div>
 
-<script type="text/javascript">
+
+
+            <script type="text/javascript">
   $('#search').on('keyup',function(){
   $value=$(this).val();
   $.ajax({

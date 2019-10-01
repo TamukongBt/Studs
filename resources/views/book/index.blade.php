@@ -2,14 +2,14 @@
 @section('content')
     @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
 
+    <div class="container-fluid" style="width:90%; margin:auto;">
 
 
-
-    @if (count($book)>0)
+        @if (count($book)>0)
         {{-- Display Booked Periods Based on Date And Time --}}
-        <table class="table table-bodered table-hover" id="dataTable">
+            <table id="myTable" class="table table-hover table-striped">
             <thead>
-            <tr>
+            <tr class="text-light" style="background-color:#333;">
                 <th scope='col'>Lecturer</th>
                 <th scope="col">Day</th>
                 <th scope="col">Building</th>
@@ -167,6 +167,7 @@
                 </div>
             </div>
 
+    </div>
 
 
 @endsection

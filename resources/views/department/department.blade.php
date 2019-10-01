@@ -1,22 +1,23 @@
 @extends('layouts.app')
 @section('content')
 
-
-<div class="container">
+  <div class="container-fluid" style="width:90%; margin:auto;">
 
   @if (count($department)>0)
-
+      @if (Auth::user()->admin==1)
   <div class="fab"> <a href="/department/create" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
+      @endif
   <div class="tablesaw-overflow">
-    <table class="table   table-hover table-responsive-sm" data-tablesaw-sortable data-tablesaw-sortable-switch >
+    <table class="table  table-hover table-striped" id="myTable">
       <thead>
-        <tr>
-          <th data-tablesaw-sortable-default-col>Faculty Name</th>
-          <th data-tablesaw-sortable-col>Faculty ID</th>
-          <th data-tablesaw-sortable-col>Department Name</th>
-          <th data-tablesaw-sortable-col>Department ID</th>
+      <tr class="text-light" style="background-color:dodgerblue;">
+        <th>Faculty Name</th>
+        <th>Faculty ID</th>
+        <th>Department Name</th>
+        <th>Department ID</th>
+        @if (Auth::user()->admin==1)
           <th scope='col'> </th>
-         
+        @endif
           
 
         </tr>
@@ -34,6 +35,7 @@
           <td>{{ $item->DepartmentID }}</td>
           <td>{{ $item->FacultyName}}</td>
           <td>{{ $item->FacultyID }}</td>
+          @if (Auth::user()->admin==1)
           <td><a href="{{ route('department.edit',$item->id)}}"
                  class="btn btn-sm btn-rounded btn-outline-secondary my-0"><i class="fa fa-pencil-square"
                                                                               aria-hidden="true"
@@ -41,6 +43,7 @@
               <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#delete">
                   <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
             </button></td>
+        @endif
 
 
           <!-- Modal to confirm Delete-->
@@ -82,12 +85,14 @@
 {!! $department->render() !!}
 @else
 {{-- If there are no values to Display --}}
-<div class="alert " style=" background-color: #1e90ff;" role="alert">
-  <div class="card text-center alert " style=" background-color: #1e90ff;">
-    <div class="card-body alert " style=" background-color: #1e90ff;">
+<div class="alert alert-primary " role="alert">
+  <div class="card text-center alert ">
+    <div class="card-body alert ">
       <h5 class="card-title"><strong>Ooopss..!</strong></h5>
       <p class="card-text"> There are no departments in this university...not yet</p>
+      @if (Auth::user()->admin==1)
       <a href="/department/create" class="btn btn-outline-primary active-cyan-2">Add Entry</a>
+      @endif
     </div>
   </div>
 

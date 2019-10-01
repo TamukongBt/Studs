@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
-  
+    @if (Auth::user()->admin==0)
+        <script>window.location.href = "/lindex"; </script>;
+
+    @endif
+    <div class="container">
 <form action="{{ url('/schedule/create')}}" method="post">
     @csrf
     <div class="card">
@@ -96,5 +100,6 @@
         <button type="submit" class="btn btn-sm btn-primary">Submit</button>
       </div>
     </div>
-    </form>  
+    </form>
+    </div>
 @endsection

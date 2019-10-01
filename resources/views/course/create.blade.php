@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
+    @if (Auth::user()->admin==0)
+        <script>window.location.href = "/lindex"; </script>;
+    @endif
+    <div class="container">
 <div class="card">
       <h5 class="card-header">Create a Course</h5>
         <div class="card-body">
@@ -67,4 +70,5 @@
   </div>
 
   </form>
+</div>
 @endsection

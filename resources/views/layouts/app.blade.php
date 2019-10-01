@@ -18,10 +18,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/fab.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/kc.fab.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/backtotop.css')}}" rel="stylesheet" type="text/css">
-
+    <link href="{{asset('css/aos.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css"
@@ -41,19 +42,18 @@
 </div>
 
 <div id="app">
+
     @include('incs.navbar')
-    <div class="container">
-        @include('incs.messages')
+    @include('incs.messages')
 
 
-        <main class="py-4">
-        @yield('content')
-        <!-- Scripts -->
+    <main class="py-4">
+    @yield('content')
+    <!-- Scripts -->
 
-        </main>
+    </main>
 
 
-    </div>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -71,6 +71,7 @@
 <script src="{{asset('js/tablesaw.jquery.js')}}"></script>
 <script src="{{asset('js/kc.fab.min.js')}}"></script>
 <script src="{{asset('js/tablesaw-init.js')}}"></script>
+<script src="{{asset('js/aos.js')}}"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
 {{-- preloader  --}}
@@ -80,17 +81,18 @@
         $("#loader").fadeOut("slow");
         loader.style.visibility = "hidden";
 
-    })
+    });
+    AOS.init();
 </script>
 {{-- Datatable to control tables --}}
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#dataTable').DataTable({
-            "info": false,
+        $('#datatable').DataTable({
             "paging": false,
-            "lengthChange": false,
-            "searching": true
+            "ordering": false,
+            "info": false
         });
+
     });
 </script>
 {{-- Back To Top --}}
@@ -136,6 +138,10 @@
             }
         });
     });
+</script>
+
+<script>
+
 </script>
 
 

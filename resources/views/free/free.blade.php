@@ -3,13 +3,14 @@
 @section('content')
 @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
 
-<div class="container">
+<div class="container-fluid" style="width:90%; margin:auto;">
  
 
 {{-- Display Free Periods Based on Date And Time --}}
-<table class="table table-bodered table-hover">
+    <table class="table table-striped table-hover" id="myTable">
         <thead >
-            <tr>
+        <tr class="text-light" style="background-color:dodgerblue;"
+        <tr>
             <th scope="col">#</th>
             <th scope="col">Building</th>
             <th scope="col">Class Code</th>

@@ -5,10 +5,10 @@
     @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
     {{-- Back to Top Button --}}
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></a>
+    @auth
 
-
-    @if (count($schedule)>0)
-            {{-- FAB BUtton at page bottom  --}}
+        {{-- FAB BUtton at page bottom  --}}
+        @if (Auth::user()->admin==1)
             <a class="mfab" id="bars"> <i id="bars" class="fa fa-bars" aria-hidden="true"
                                           style="font-size:x-large;"></i> </a>
             <a id="fab1" href="schedule/create" class="mfab1"> <i class="fa fa-pencil text-dark" aria-hidden="true"></i>
@@ -16,7 +16,18 @@
             <a id="fab2" data-toggle="modal" data-target="#exampleModalCenter" class="mfab2"> <i class="fa fa-search"
                                                                                                  aria-hidden="true"></i>
             </a>
+        @else
+            <div class="fab"><a data-toggle="modal" data-target="#exampleModalCenter" class="a"><i class="fa fa-search"
+                                                                                                   aria-hidden="true"></i></a>
+            </div>
+        @endif
+    @endauth
+    <div class="container-fluid" style="width:auto; margin:auto;">
+
+    @if (count($schedule)>0)
+
          
+
 
             <!-- Modal for search a free hall-->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -90,12 +101,10 @@
             </div>
 
 
-            <div class="pull-right">
 
-            </div>
-            <table id="myTable" class="table table-striped table-bordered table-responsive">
+                <table id="myTable" class="table table-hover table-striped">
                 <thead>
-                <tr>
+                <tr class="text-light" style="background-color:dodgerblue;">
                     <th class="all" scope="col">Day</th>
                     <th class="all" scope="col">Course Code</th>
                     <th class="none" scope="col">Course Name</th>
@@ -106,8 +115,11 @@
                     <th class="none" scope="col">Department ID</th>
                     <th class="none" scope="col">Lecturer</th>
                     <th class="none" scope="col">Level</th>
-
+                    @auth
+                        @if (Auth::user()->admin==1)
                     <th class="none" scope="col"></th>
+                        @endif
+                    @endauth
                 </tr>
                 </thead>
                 <?php $id = 1; ?>
@@ -137,7 +149,10 @@
                         <td>{{ $entry->DepartmentID }}</td>
                         <td>{{ $entry->Lecturer }}</td>
                         <td>{{ $entry->Level }}</td>
-                        <td>
+                        @auth
+
+                            @if (Auth::user()->admin==1)
+                                <td style="display: flex;">
                             <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal"
                                     data-target="#delete" style="cursor:pointer;">
                                 <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
@@ -177,11 +192,14 @@
                                     </div>
                                 </div>
                             </div>
-    </div>
+
+                                    <br>
     <a class="btn btn-outline-primary btn-sm" href="/schedule/{{ $entry->id }}/edit"><i class="fa fa-pencil-square"
                                                                                         aria-hidden="true"
                                                                                         style="color: black"></i></a>
     </td>
+                            @endif
+                        @endauth
     </tr>
     </tbody>
     @endforeach
@@ -195,13 +213,16 @@
                 <div class="card-body alert-info ">
                     <h5 class="card-title text-dark "><strong>Ooopss..!</strong></h5>
                     <p class="card-text text-dark"> No classes have been set in this university</p>
-                    <a href="/schedule/create" class="btn btn-outline-dark btn-sm ">Add Data</a>
+                    @auth
 
+                        @if (Auth::user()->admin==1)
+                    <a href="/schedule/create" class="btn btn-outline-dark btn-sm ">Add Data</a>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>
-    @endif
-
-
+        @endif
+    </div>
 
 @endsection

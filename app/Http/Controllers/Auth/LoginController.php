@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
@@ -26,14 +27,18 @@ class LoginController extends Controller
      * @var string
      */
     protected function redirectTo( ) {
-
-        return ('/home');
+        if (auth()->user()->admin == 0) {
+            return ('/lindex');
+        } else {
+            return ('/home');
+        }
+        
     }
       
 
      public function getLogout()
     {
-    \Auth::logout();
+        Auth::logout();
     $request->session()->invalidate();
     return redirect('/home');
 

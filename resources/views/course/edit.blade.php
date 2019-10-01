@@ -1,9 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    @if (Auth::user()->admin==0)
+        <script>window.location.href = "/lindex"; </script>;
+    @endif
       <!-- Modal -->
-  
-              
-      <div class="card">
+    <div class="container">
+
+        <div class="card">
         <div class="card-header " style=" background-color: 00fa9a;">
                 <h3 class="text-secondary">Add an Option</h3>
         </div>
@@ -80,5 +83,7 @@
                     </form>
         </div>
       </div>
-    
+
+    </div>
+             
 @endsection

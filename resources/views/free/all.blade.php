@@ -3,12 +3,13 @@
     @include('incs.period'){{-- <-- this file includes the data neccesary to execute the check period and display the appropriate time--> --}}
 
 
+    <div class="container-fluid" style="width:90%; margin:auto;">
 
-    @if (count($all)>0)
+        @if (count($all)>0)
         {{-- Display All Free Periods Based on Date And Time --}}
-        <table class="table table-bodered table-hover" id="myTable">
+            <table class="table table-striped table-hover" id="myTable">
             <thead>
-            <tr>
+            <tr class="text-light" style="background-color:#333;">
                 <th scope="col">Building</th>
                 <th scope="col">Class Code</th>
                 <th scope="col">Capacity</th>
@@ -160,6 +161,8 @@
                 </div>
             </div>
 
+
+        </div>
 
         </div>
 @endsection

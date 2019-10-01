@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container-fluid" style="width:90%; margin:auto;">
+        @if (Auth::user()->admin==1)
         <div class="fab">  <a href="{{ route('course.create') }}" class="a"><i class="fa fa-pencil" aria-hidden="true"></i></a> </div>
-      
+        @endif
         <div class="table-responsive text-nowrap">
-                <table class="tablesaw tablesaw-stack tablesaw-row-zebra table table-bodered" data-tablesaw-mode="stack" >
+            <table id="myTable" class="table table-hover table-striped">
                         <thead >
-                            <tr>
+                        <tr class="text-light" style="background-color:dodgerblue;">
                             <th scope="col">#</th>
                             <th scope="col">Course Name</th>
                             <th scope="col">Course Code</th>
@@ -46,6 +47,7 @@
                                             }
                                         @endphp</td>
                                         <td>{{ $item->DepartmentID }}</td>
+                                          @if (Auth::user()->admin==1)
                                           <td>
                                               <a class="btn btn-outline-light btn-sm"
                                                  href="/course/{{ $item->id }}/edit"><i class="fa fa-pencil-square"
@@ -82,6 +84,7 @@
                                                 </div>
                                               </div>
                                         </td>
+                                          @endif
                                       </tr>
                                     </tbody>
                                  
@@ -93,7 +96,17 @@
     </div>
     {!!$course->render() !!}
     @else
-        <p>No Available Classes</p>
+        <div class="alert alert-primary " role="alert">
+            <div class="card text-center alert ">
+                <div class="card-body alert ">
+                    <h5 class="card-title"><strong>Ooopss..!</strong></h5>
+                    <p class="card-text"> There are no departments in this university...not yet</p>
+                    @if (Auth::user()->admin==1)
+                        <a href="/course/create" class="btn btn-outline-primary active-cyan-2">Add Entry</a>
+                    @endif
+                </div>
+            </div>
+
     @endif
    
 @endsection

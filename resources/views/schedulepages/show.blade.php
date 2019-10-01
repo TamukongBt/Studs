@@ -4,10 +4,12 @@
 {{-- Jumbotron to display the selected Day   --}}
 
 {{-- Table Header --}}
-<div class="table-responsive text-nowrap">
-        @if (count($schedule)>0)
-        <table class="table table-bodered w-auto">
-              <tr>
+<div class="container-fluid" style="width:90%; margin:auto;">
+
+
+    @if (count($schedule)>0)
+        <table class="table table-striped table-hover">
+            <tr class="text-light" style="background-color:dodgerblue;">
               <th scope="col">#</th>
               <th scope="col">Day</th>
               <th scope="col">Course Code</th>
@@ -20,12 +22,12 @@
               <th scope="col">Lecturer</th>
               </tr>
           </thead>
-      </div>
-      {{-- Table Data --}}
+
+            {{-- Table Data --}}
          <?php $id=1; ?>
           @foreach ($schedule as $entry)
-              <div class="container">
-                      <tbody>
+
+                <tbody>
                        
                         <tr >
                           <th scope="row">{{ $id++ }}</th>
@@ -55,8 +57,8 @@
                 </div>
           @endforeach  
       </table>
-    </div>
-    {{-- Paginator --}}
+
+{{-- Paginator --}}
       {!! $schedule->render() !!}
       @else
         <div class="alert alert-info">
@@ -64,10 +66,12 @@
         </div>
           
       @endif
-   
-  
 
-<div class="pull-right">
+
+
+<div class="pull-left">
     <a href="/schedule" class="btn btn-light">Go Back</a>
   </div>
+
+</div>
 @endsection
